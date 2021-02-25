@@ -1,28 +1,24 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('ResetTokens', {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      Token: {
-        type: Sequelize.UUID
+      firstName: {
+        type: Sequelize.STRING
       },
-      expirationDate: {
-        type: Sequelize.DATE
+      lastName: {
+        type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Usuarios',
-          key: 'id'
-        }
+      email: {
+        type: Sequelize.STRING
       },
-      active: {
-        type: Sequelize.BOOLEAN
+      password: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -35,6 +31,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('ResetTokens');
+    await queryInterface.dropTable('Users');
   }
 };

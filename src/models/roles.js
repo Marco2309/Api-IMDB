@@ -3,7 +3,8 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Roles extends Model {
     static associate(models) {
-      this.belongsToMany(models.UserRoles, {
+      // define association here
+      this.belongsToMany(models.Users, {
         through: "UserRoles",
         foreignKey: "roleId",
       });
