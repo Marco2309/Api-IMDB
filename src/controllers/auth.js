@@ -1,6 +1,7 @@
 import { generateJWT, validateJWT } from "../middlewares/jwt";
 import bcryptjs from "bcrypt";
 import { Users } from "../models/";
+
 export const defaultt = async (req, res) => {
   res.send("Server Run successfully");
 };
@@ -35,13 +36,14 @@ export const login = async (req, res) => {
 export const signup = async (req, res) => {
   try {
     let thereIsUser = false;
-    const { email, password, firstName, lastName } = req.body;
+    const { email, password} = req.body;
     const user = await Users.findOne({ where: { email: email } });
     user ? (thereIsUser = false) : (thereIsUser = true);
     if (thereIsUser) {
       const hash = await bcryptjs.hashSync(password, 10);
       req.body.password = hash;
       const userCreated = await Users.create(req.body);
+      userCreated.password = '****'
       res.status(201).json(userCreated);
     } else {
       console.log("[Error] ==> Usuario ya existe");
@@ -61,16 +63,4 @@ export const resetPassword = async (req, res) => {
 // Actualizar un usuario basado en el token UUID
 export const updatePassword = async (req, res) => {
   res.send("Server Run updatePassword");
-};
-// Obtener todos los usuarios de la base de datos (protegida)
-export const users = async (req, res) => {
-  res.send("Server Run users");
-};
-// Agregar un nuevo rol
-export const roles = async (req, res) => {
-  res.send("Server Run roles");
-};
-// Agregar un rol para un usuario
-export const roleForUser = async (req, res) => {
-  res.send("Server Run roleId");
 };
