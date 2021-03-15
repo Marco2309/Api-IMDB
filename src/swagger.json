@@ -2,7 +2,8 @@
   "openapi": "3.0.0",
   "info": {
     "title": "API IMDB",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "description": "Este es el proyecto Final del módulo de NodeJs"
   },
   "servers": [
     {
@@ -79,7 +80,7 @@
       }
     },
     "/update-password": {
-      "post": {
+      "put": {
         "description": "Endpoint para la contraseña de un usuario",
         "tags": ["Auth"],
         "requestBody": {
@@ -105,6 +106,522 @@
         "responses": {
           "200": {
             "description": "Se ha enviado un correo electronico con el token de restablecimiento"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Obten los usuarios (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Añade un nuevo usuarrio",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["User"],
+        "responses": {
+          "201": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Obten usuario por id (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Obten usuario por id (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Obten usuario por id (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}/roles/{roleId}": {
+      "post": {
+        "summary": "Obten los usuarios (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "summary": "Obten los usuarios (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["roles"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Obten los usuarios (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["roles"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/roles/{id}": {
+      "get": {
+        "summary": "Obten usuario por id (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["roles"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Obten usuario por id (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["roles"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Obten usuario por id (Protegida)",
+        "description": "Endpoint para obtener todos los usuarios",
+        "tags": ["roles"],
+        "responses": {
+          "200": {
+            "description": "Se ha enviado un correo electronico con el token de restablecimiento",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "format": "int64",
+                      "example": 1
+                    },
+                    "firstName": {
+                      "type": "string",
+                      "example": "Juan"
+                    },
+                    "lastName": {
+                      "type": "string",
+                      "example": "Perez"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "Juan@perez.com"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:46:54.740Z"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date",
+                      "example": "2021-03-04T20:52:09.594Z"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
